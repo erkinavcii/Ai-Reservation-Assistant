@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Sahibinden AI Rezervasyon Entegrasyonu",
+  "version": "1.0",
+  "description": "Sahibinden.com mesajlarını yakalayarak AI rezervasyon asistanı ile otomatik yanıtlar üretir.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.sahibinden.com/bana-ozel/mesajlar*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.sahibinden.com/bana-ozel/mesajlar*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

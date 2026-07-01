@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    .container {
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    .header h2 {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background-color: #1e293b;
+      color: #f8fafc;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input[type="text"]:focus {
+      border-color: #3b82f6;
+    }
+    .toggle-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    .toggle-group span {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    /* Simple switch button styling */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 22px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #334155;
+      transition: .4s;
+      border-radius: 22px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #3b82f6;
+    }
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+    .btn-save {
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 10px;
+    }
+    .btn-save:hover {
+      opacity: 0.9;
+    }
+    .footer {
+      font-size: 10px;
+      text-align: center;
+      color: #64748b;
+      margin-top: 15px;
+    }
+    .status-text {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 8px;
+      color: #10b981;
+      height: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>🤖 Sahibinden AI Bot Panel</h2>
+    </div>
+
+    <div class="toggle-group">
+      <span>AI Asistan Aktif</span>
+      <label class="switch">
+        <input type="checkbox" id="bot-active-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-group">
+      <span>Oto-Gönderim (Auto-Send)</span>
+      <label class="switch">
+        <input type="checkbox" id="autosend-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div style="height: 15px;"></div>
+
+    <div class="form-group">
+      <label for="backend-url">FastAPI Backend URL</label>
+      <input type="text" id="backend-url" placeholder="http://localhost:8000/chat">
+    </div>
+
+    <button class="btn-save" id="btn-save">Ayarları Kaydet</button>
+    <div class="status-text" id="status-text"></div>
+
+    <div class="footer">
+      Sahibinden.com Sekmesini Açık Tutmayı Unutmayın!
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
